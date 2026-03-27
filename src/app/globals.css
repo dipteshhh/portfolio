@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-inter: var(--font-inter);
+  --font-manrope: var(--font-manrope);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-manrope);
+
+  /* Colors */
+  --color-surface: #fbf9f8;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container-high: #ecebea; /* Assumed intermediate value */
+  --color-surface-container-highest: #e4e2e1;
+  --color-surface-container-lowest: #ffffff;
+  
+  --color-primary: #0059bb;
+  --color-primary-container: #0070ea;
+  
+  --color-on-primary: #ffffff;
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #5b5e5e;
+  --color-outline-variant: #c1c6d7;
+
+  /* Typography extensions */
+  --text-display-lg: 3.5rem;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-body-md: 0.875rem;
+  --text-body-sm: 0.8125rem;
+  --text-label-md: 0.75rem;
+  --text-label-md--letter-spacing: 0.1rem;
+
+  /* Spacing extensions */
+  --spacing-6: 1.5rem;
+  --spacing-12: 4rem;
+  --spacing-16: 5.5rem;
+
+  /* Shadows */
+  --shadow-ambient: 0 20px 40px rgba(27, 28, 28, 0.06);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-inter);
+  }
+}
+
+/* Glassmorphism Utility */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.85); /* surface-container-lowest @ 85% */
+  backdrop-filter: blur(20px);
+}
+
+@utility glass-lowest {
+  background-color: rgb(255 255 255 / 0.85);
+  backdrop-filter: blur(12px); /* From rule 4: backdrop-filter: blur(12px) on surface-container-lowest */
+}
+
+/* Button & Hover Utilities */
+@utility bg-card {
+  background-color: var(--color-surface-container-low);
+  border-radius: 0.5rem;
+}
+
+@utility bg-gradient-primary {
+  background-image: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
