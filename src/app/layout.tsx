@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import ContactModal from "@/components/ContactModal";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,8 +18,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio 2026",
-  description: "Structural Clarity Design System",
+  title: "Diptesh Shahi Thakuri | Software Engineer",
+  description:
+    "New-grad software engineer interested in software, AI, data, and systems roles.",
 };
 
 export default function RootLayout({
@@ -27,10 +31,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-surface text-on-surface">
+        <Navbar />
         {children}
+        <ContactModal />
+        <ScrollToTop />
       </body>
     </html>
   );

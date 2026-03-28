@@ -1,0 +1,69 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="100" y1="90" x2="1500" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1626"/>
+      <stop offset="1" stop-color="#1D2B45"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="973" y1="367" x2="1319" y2="571" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6DA7FF"/>
+      <stop offset="1" stop-color="#A5C7FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <circle cx="1360" cy="164" r="148" fill="#2E4D83" opacity="0.4"/>
+  <circle cx="246" cy="740" r="210" fill="#1A335C" opacity="0.35"/>
+  <rect x="118" y="108" width="1364" height="684" rx="34" fill="#F8FAFD" stroke="#2B4269" stroke-width="4"/>
+  <rect x="118" y="108" width="1364" height="64" rx="34" fill="#E9EFF8"/>
+  <circle cx="168" cy="140" r="8" fill="#FF8D7A"/>
+  <circle cx="198" cy="140" r="8" fill="#FFC66E"/>
+  <circle cx="228" cy="140" r="8" fill="#68C88D"/>
+  <text x="276" y="146" fill="#465165" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">TopDown Estimate Maker</text>
+
+  <rect x="166" y="212" width="274" height="528" rx="28" fill="#13203A"/>
+  <rect x="196" y="246" width="214" height="18" rx="9" fill="#375281"/>
+  <rect x="196" y="294" width="214" height="56" rx="20" fill="#1E345A"/>
+  <rect x="196" y="372" width="214" height="56" rx="20" fill="#1B2D4D"/>
+  <rect x="196" y="450" width="214" height="56" rx="20" fill="#1B2D4D"/>
+  <rect x="196" y="528" width="214" height="56" rx="20" fill="#1B2D4D"/>
+  <text x="224" y="330" fill="#DDE9FF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Project Scope</text>
+  <text x="224" y="408" fill="#DDE9FF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Labor Bands</text>
+  <text x="224" y="486" fill="#DDE9FF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Materials</text>
+  <text x="224" y="564" fill="#DDE9FF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Contingency</text>
+
+  <rect x="480" y="212" width="962" height="148" rx="28" fill="#FFFFFF"/>
+  <rect x="512" y="246" width="206" height="80" rx="24" fill="#F3F7FD"/>
+  <rect x="734" y="246" width="206" height="80" rx="24" fill="#F3F7FD"/>
+  <rect x="956" y="246" width="206" height="80" rx="24" fill="#F3F7FD"/>
+  <rect x="1168" y="246" width="250" height="80" rx="24" fill="#1D58C8"/>
+  <text x="544" y="280" fill="#5C6677" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">TOTAL ESTIMATE</text>
+  <text x="546" y="314" fill="#0F172A" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">$2.48M</text>
+  <text x="766" y="280" fill="#5C6677" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">LABOR</text>
+  <text x="768" y="314" fill="#0F172A" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">$1.12M</text>
+  <text x="988" y="280" fill="#5C6677" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">MATERIALS</text>
+  <text x="990" y="314" fill="#0F172A" font-size="32" font-family="Arial, Helvetica, sans-serif" font-weight="700">$860K</text>
+  <text x="1293" y="280" fill="#CFE0FF" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">SSOE CLIENT VIEW</text>
+  <text x="1293" y="314" fill="#FFFFFF" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Ready for review</text>
+
+  <rect x="480" y="392" width="444" height="348" rx="28" fill="#FFFFFF"/>
+  <text x="516" y="438" fill="#0F172A" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700">Line-item builder</text>
+  <rect x="516" y="474" width="372" height="52" rx="18" fill="#F4F7FB"/>
+  <rect x="516" y="542" width="372" height="52" rx="18" fill="#F4F7FB"/>
+  <rect x="516" y="610" width="372" height="52" rx="18" fill="#F4F7FB"/>
+  <text x="548" y="507" fill="#38455A" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Structural + site prep</text>
+  <text x="786" y="507" fill="#1D58C8" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">$720K</text>
+  <text x="548" y="575" fill="#38455A" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Mechanical systems</text>
+  <text x="786" y="575" fill="#1D58C8" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">$910K</text>
+  <text x="548" y="643" fill="#38455A" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Risk reserve</text>
+  <text x="794" y="643" fill="#1D58C8" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">$182K</text>
+
+  <rect x="958" y="392" width="484" height="348" rx="28" fill="#F7FAFF"/>
+  <text x="1200" y="434" fill="#0F172A" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Estimate distribution</text>
+  <rect x="1018" y="678" width="356" height="18" rx="9" fill="#D7E2F4"/>
+  <rect x="1018" y="644" width="320" height="18" rx="9" fill="#D7E2F4"/>
+  <rect x="1018" y="610" width="284" height="18" rx="9" fill="#D7E2F4"/>
+  <path d="M1036 568C1088 528 1142 496 1198 480C1256 464 1310 460 1368 466" stroke="url(#chart)" stroke-width="14" stroke-linecap="round"/>
+  <rect x="1020" y="582" width="72" height="84" rx="18" fill="#A7C8FF"/>
+  <rect x="1112" y="548" width="72" height="118" rx="18" fill="#88B4FF"/>
+  <rect x="1204" y="514" width="72" height="152" rx="18" fill="#6DA7FF"/>
+  <rect x="1296" y="480" width="72" height="186" rx="18" fill="#3F7EED"/>
+</svg>

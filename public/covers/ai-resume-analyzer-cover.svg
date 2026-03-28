@@ -1,0 +1,60 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="136" y1="88" x2="1446" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F1EA"/>
+      <stop offset="1" stop-color="#E7EEF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <circle cx="1324" cy="150" r="140" fill="#D7E4FB"/>
+  <circle cx="214" cy="738" r="190" fill="#F2DDD2"/>
+  <rect x="122" y="112" width="1356" height="676" rx="34" fill="#FFFDFC" stroke="#DDD6CF" stroke-width="4"/>
+  <rect x="122" y="112" width="1356" height="62" rx="34" fill="#F2ECE6"/>
+  <circle cx="172" cy="143" r="8" fill="#FF8D7A"/>
+  <circle cx="202" cy="143" r="8" fill="#FFC66E"/>
+  <circle cx="232" cy="143" r="8" fill="#68C88D"/>
+  <text x="280" y="149" fill="#5C6573" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">AI Resume Analyzer</text>
+
+  <rect x="180" y="210" width="474" height="480" rx="30" fill="#FFFFFF" stroke="#E5DED7" stroke-width="3"/>
+  <rect x="214" y="244" width="406" height="412" rx="24" fill="#FBF9F6"/>
+  <rect x="244" y="280" width="220" height="24" rx="12" fill="#101828"/>
+  <rect x="244" y="332" width="330" height="14" rx="7" fill="#D7D4CF"/>
+  <rect x="244" y="360" width="290" height="14" rx="7" fill="#D7D4CF"/>
+  <rect x="244" y="388" width="312" height="14" rx="7" fill="#D7D4CF"/>
+  <rect x="244" y="448" width="164" height="18" rx="9" fill="#E9EEFA"/>
+  <rect x="244" y="484" width="230" height="12" rx="6" fill="#E0DDD7"/>
+  <rect x="244" y="510" width="256" height="12" rx="6" fill="#E0DDD7"/>
+  <rect x="244" y="536" width="226" height="12" rx="6" fill="#E0DDD7"/>
+  <rect x="244" y="582" width="170" height="18" rx="9" fill="#E9EEFA"/>
+  <rect x="244" y="618" width="278" height="12" rx="6" fill="#E0DDD7"/>
+
+  <rect x="706" y="210" width="712" height="200" rx="30" fill="#111827"/>
+  <text x="748" y="258" fill="#C7D7FF" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="2">ATS MATCH SCORE</text>
+  <circle cx="862" cy="336" r="60" fill="#1D58C8"/>
+  <circle cx="862" cy="336" r="40" fill="#111827"/>
+  <text x="862" y="336" fill="#FFFFFF" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle" dominant-baseline="middle">92%</text>
+  <rect x="960" y="274" width="148" height="34" rx="17" fill="#E8F7EC"/>
+  <text x="995" y="296" fill="#2E8D58" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Strong fit</text>
+  <rect x="1126" y="274" width="214" height="34" rx="17" fill="#FFF0DE"/>
+  <text x="1164" y="296" fill="#B86117" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">5 missing keywords</text>
+  <rect x="960" y="334" width="328" height="16" rx="8" fill="#31415F"/>
+  <rect x="960" y="364" width="286" height="16" rx="8" fill="#31415F"/>
+
+  <rect x="706" y="442" width="342" height="248" rx="28" fill="#F6F9FF"/>
+  <text x="740" y="486" fill="#1B1C1C" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">Keyword coverage</text>
+  <rect x="740" y="528" width="124" height="34" rx="17" fill="#E8F1FF"/>
+  <text x="776" y="550" fill="#2D68D7" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">Python</text>
+  <rect x="878" y="528" width="110" height="34" rx="17" fill="#E8F1FF"/>
+  <text x="909" y="550" fill="#2D68D7" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">NLP</text>
+  <rect x="740" y="576" width="150" height="34" rx="17" fill="#FFF0DE"/>
+  <text x="770" y="598" fill="#B86117" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">Missing: AWS</text>
+  <rect x="904" y="576" width="140" height="34" rx="17" fill="#FFF0DE"/>
+  <text x="974" y="598" fill="#B86117" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Missing: SQL</text>
+
+  <rect x="1080" y="442" width="338" height="248" rx="28" fill="#FFF7EF"/>
+  <text x="1114" y="486" fill="#1B1C1C" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">Writing feedback</text>
+  <rect x="1114" y="528" width="270" height="44" rx="18" fill="#FFFFFF"/>
+  <rect x="1114" y="586" width="270" height="44" rx="18" fill="#FFFFFF"/>
+  <text x="1140" y="556" fill="#B86117" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Use stronger action verbs</text>
+  <text x="1140" y="614" fill="#2E8D58" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Bullets are impact-oriented</text>
+</svg>

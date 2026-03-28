@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type ExperienceEntry = {
   id: string;
@@ -19,16 +20,15 @@ const EXPERIENCE_DATA: ExperienceEntry[] = [
     company: "ACTUAL REALITY TECHNOLOGIES",
     role: "Software Developer Intern",
     description:
-      "Worked on enterprise web applications using the T3 stack (Next.js, TypeScript, tRPC, Prisma, Tailwind CSS).",
+      "Worked on a four-person software team delivering enterprise web applications for client-facing business workflows.",
     bullets: [
-      "Contributed to a Top-Down Cost Estimator used by SSOE",
-      "Built reusable UI components using Tailwind and shadcn/ui",
-      "Designed monorepo architecture using pnpm, Turborepo, and Nx",
+      "Owned frontend implementation work on the Top-Down Estimate Maker built for SSOE",
+      "Built reusable React UI components with Tailwind CSS and shadcn/ui for desktop and mobile workflows",
+      "Helped shape a shared monorepo setup using pnpm, Turborepo, and Nx to support team development",
     ],
-    skills: ["Next.js", "TypeScript", "tRPC", "Prisma", "Tailwind", "Turborepo"],
-    imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD-bXtJnMpOXe2WT1Gw4V8OYiAdeG67TcGpjyp8NYwqL_TZKUeP8efKgJFVmzzKCv58lJSErCBC1eLkmv4CLxFu0twXmy_Yn0nVaPXpffx39YMOaofQgxcRJcvFAX5ptVnsb2XnRYPYx00GchUcKEzwsnM_EO6tIHBGHG3Luk6kbjjaPoYN1ekEnO3C_UfkrY2WsmdHlyRFRWFyTHv348cluT2ZTnpkXPKOuQGrkUKEhhsZLev8m8xFjUvP66ds2j0Etsf5p7-1eLE",
-    imageAlt: "Server room infrastructure",
+    skills: ["Next.js", "TypeScript", "React", "Tailwind", "shadcn/ui", "Turborepo"],
+    imageSrc: "/covers/actual-reality-cover.svg",
+    imageAlt: "Linear-style ticket tracker cover showing supervisor-assigned frontend and backend work for client delivery",
   },
   {
     id: "utoledo-ml",
@@ -36,16 +36,15 @@ const EXPERIENCE_DATA: ExperienceEntry[] = [
     company: "UNIVERSITY OF TOLEDO",
     role: "Undergraduate Research Assistant (ML)",
     description:
-      "Conducted machine learning research on predictive disease diagnosis using healthcare datasets.",
+      "Conducted machine learning research on predictive disease diagnosis using structured healthcare datasets in MATLAB.",
     bullets: [
-      "Built classification models (Logistic Regression, SVM, Random Forest)",
-      "Performed feature importance analysis and hyperparameter tuning",
-      "Evaluated models using ROC-AUC and other metrics",
+      "Compared Logistic Regression, Decision Trees, SVMs, and Random Forests across diabetes, heart disease, and breast cancer datasets",
+      "Built a reproducible preprocessing and evaluation workflow with feature analysis and hyperparameter tuning",
+      "Reported best ROC AUC results of 80.7% for diabetes, 93.1% for heart disease, and 99.9% for breast cancer",
     ],
-    skills: ["Python", "MATLAB", "Machine Learning"],
-    imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDPX5ZKQncrdAhK8YXs_dACeEqyKgcQZi31jiUzTQcthORXMfbhL1L1jEVm5lKUJXlExmc5u8jBr1YWIuQjV-xfXsx7KRupaqzSDhWCkTw1scYirhKqCB8Vp26DRF4UB4Tk6GXC3eVKmljpAyPpIf6MxWyMwWe4FBmKvvOl6DkqveG1fHd2s7EXA10EFd9sbAlyfMSn2KJs7u4kcrONvauUTBaCWhRogEPcqBC6AR_dsbQ_0kvobqIW8i6EDGYW7t6IVDb-_rRtiyM",
-    imageAlt: "Laboratory environment",
+    skills: ["MATLAB", "Machine Learning", "Model Evaluation"],
+    imageSrc: "/covers/utoledo-ml-cover.svg",
+    imageAlt: "Custom University of Toledo ML research cover showing healthcare datasets, model comparison, and evaluation metrics",
   },
 ];
 
@@ -56,17 +55,16 @@ export default function Experience() {
         <header className="mb-24 max-w-3xl">
           <div className="mb-4">
             <span className="font-sans text-[0.75rem] font-bold uppercase tracking-[0.15em] text-primary">
-              Professional Journey
+              Experience
             </span>
           </div>
           <h2 className="font-display mb-8 text-5xl font-extrabold tracking-tighter text-on-surface md:text-6xl">
-            Building the <span className="text-primary">Invisible</span>{" "}
-            Infrastructure.
+            Shipping <span className="text-primary">software</span>, research,
+            and systems work.
           </h2>
           <p className="font-sans text-lg font-light leading-relaxed text-on-surface-variant max-w-2xl">
-            A technical timeline of architectural decisions, distributed systems,
-            and data-driven research. Focused on creating resilient backend
-            systems that scale with purpose.
+            A concise timeline of internship delivery, research execution, and
+            technical problem-solving across software engineering and applied ML.
           </p>
         </header>
 
@@ -165,11 +163,15 @@ export default function Experience() {
                     }`}
                   >
                     {exp.imageSrc && (
-                      <img
-                        src={exp.imageSrc}
-                        alt={exp.imageAlt}
-                        className="h-48 w-full rounded-xl object-cover grayscale opacity-40 transition-all duration-500 hover:opacity-100 hover:grayscale-0"
-                      />
+                      <div className="relative h-48 w-full overflow-hidden rounded-xl shadow-[0_18px_32px_rgba(27,28,28,0.12)]">
+                        <Image
+                          src={exp.imageSrc}
+                          alt={exp.imageAlt || exp.company}
+                          fill
+                          sizes="(min-width: 768px) 42vw, 100vw"
+                          className="object-cover transition-transform duration-500 hover:scale-[1.015]"
+                        />
+                      </div>
                     )}
                   </div>
                 </article>
@@ -213,7 +215,7 @@ export default function Experience() {
               <span className="text-primary-container">3600</span>){"\n"}
               {"            "}
               <span className="text-primary">yield</span> Response(status=
-              <span className="text-green-600">"PROCESSED"</span>, id=chunk.id)
+              <span className="text-green-600">&quot;PROCESSED&quot;</span>, id=chunk.id)
             </pre>
           </div>
         </div>

@@ -1,0 +1,53 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="90" x2="1484" y2="804" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF5FF"/>
+      <stop offset="1" stop-color="#DDECF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <circle cx="1340" cy="150" r="146" fill="#B7D8EC" opacity="0.6"/>
+  <circle cx="238" cy="748" r="206" fill="#D9EDF7" opacity="0.8"/>
+  <rect x="122" y="112" width="1356" height="676" rx="34" fill="#FFFFFF" stroke="#CAE0ED" stroke-width="4"/>
+  <rect x="122" y="112" width="1356" height="64" rx="34" fill="#EFF6FB"/>
+  <circle cx="172" cy="143" r="8" fill="#FF8D7A"/>
+  <circle cx="202" cy="143" r="8" fill="#FFC66E"/>
+  <circle cx="232" cy="143" r="8" fill="#68C88D"/>
+  <text x="280" y="149" fill="#5C6776" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">University of Toledo / Predictive Disease Diagnosis</text>
+
+  <rect x="176" y="212" width="404" height="492" rx="30" fill="#F7FBFF"/>
+  <text x="212" y="258" fill="#111827" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Dataset panels</text>
+  <rect x="212" y="296" width="332" height="100" rx="24" fill="#FFFFFF"/>
+  <rect x="212" y="416" width="332" height="100" rx="24" fill="#FFFFFF"/>
+  <rect x="212" y="536" width="332" height="100" rx="24" fill="#FFFFFF"/>
+  <text x="244" y="352" fill="#2D68D7" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Diabetes</text>
+  <text x="244" y="472" fill="#2D68D7" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Heart Disease</text>
+  <text x="244" y="592" fill="#2D68D7" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">Breast Cancer</text>
+  <text x="406" y="352" fill="#111827" font-size="26" font-family="Arial, Helvetica, sans-serif" font-weight="700">AUC 0.807</text>
+  <text x="406" y="472" fill="#111827" font-size="26" font-family="Arial, Helvetica, sans-serif" font-weight="700">AUC 0.931</text>
+  <text x="406" y="592" fill="#111827" font-size="26" font-family="Arial, Helvetica, sans-serif" font-weight="700">AUC 0.999</text>
+
+  <rect x="616" y="212" width="410" height="492" rx="30" fill="#FFFFFF"/>
+  <text x="652" y="258" fill="#111827" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Model comparison</text>
+  <line x1="676" y1="632" x2="972" y2="632" stroke="#C9D7E5" stroke-width="4"/>
+  <rect x="704" y="518" width="54" height="114" rx="18" fill="#B7D1FB"/>
+  <rect x="784" y="458" width="54" height="174" rx="18" fill="#7FAFFF"/>
+  <rect x="864" y="492" width="54" height="140" rx="18" fill="#5A93F5"/>
+  <rect x="944" y="434" width="54" height="198" rx="18" fill="#2D68D7"/>
+  <text x="694" y="664" fill="#46556A" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">LR</text>
+  <text x="776" y="664" fill="#46556A" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">SVM</text>
+  <text x="852" y="664" fill="#46556A" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">DT</text>
+  <text x="934" y="664" fill="#46556A" font-size="16" font-family="Arial, Helvetica, sans-serif" font-weight="700">RF</text>
+  <path d="M690 412C730 368 760 338 814 332C872 324 912 350 970 286" stroke="#2DB6B1" stroke-width="10" stroke-linecap="round"/>
+
+  <rect x="1062" y="212" width="316" height="492" rx="30" fill="#0F172A"/>
+  <text x="1098" y="258" fill="#CFE0FF" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">Evaluation notes</text>
+  <rect x="1098" y="300" width="244" height="52" rx="18" fill="#15243C"/>
+  <rect x="1098" y="372" width="244" height="52" rx="18" fill="#15243C"/>
+  <rect x="1098" y="444" width="244" height="52" rx="18" fill="#15243C"/>
+  <rect x="1098" y="516" width="244" height="52" rx="18" fill="#15243C"/>
+  <text x="1126" y="333" fill="#DDE9FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Preprocessing pipeline</text>
+  <text x="1126" y="405" fill="#DDE9FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Feature importance</text>
+  <text x="1126" y="477" fill="#DDE9FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Hyperparameter tuning</text>
+  <text x="1126" y="549" fill="#DDE9FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">ROC-AUC reporting</text>
+</svg>

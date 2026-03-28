@@ -1,0 +1,55 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="84" x2="1518" y2="816" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1320"/>
+      <stop offset="1" stop-color="#0F2436"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="1032" y1="312" x2="1284" y2="492" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70C0FF"/>
+      <stop offset="1" stop-color="#9CE9E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <path d="M0 720C280 600 470 596 826 718C1130 822 1356 794 1600 656" stroke="#1E4867" stroke-width="2" opacity="0.45"/>
+  <path d="M0 650C292 566 514 574 824 670C1138 768 1362 746 1600 604" stroke="#1E4867" stroke-width="2" opacity="0.4"/>
+  <circle cx="1260" cy="166" r="128" fill="#163B52" opacity="0.45"/>
+  <rect x="118" y="108" width="1364" height="684" rx="34" fill="#F8FBFF" stroke="#27465E" stroke-width="4"/>
+  <rect x="118" y="108" width="1364" height="64" rx="34" fill="#E7F2FA"/>
+  <circle cx="168" cy="140" r="8" fill="#FF8D7A"/>
+  <circle cx="198" cy="140" r="8" fill="#FFC66E"/>
+  <circle cx="228" cy="140" r="8" fill="#68C88D"/>
+  <text x="276" y="146" fill="#42576A" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Policy Navigator / RAG QA</text>
+
+  <rect x="174" y="214" width="1248" height="84" rx="26" fill="#0F172A"/>
+  <text x="214" y="265" fill="#DDE9FF" font-size="26" font-family="Arial, Helvetica, sans-serif" font-weight="700">What ACA requirement applies to preventive services coverage?</text>
+  <rect x="1254" y="234" width="120" height="44" rx="22" fill="#2D68D7"/>
+  <text x="1287" y="262" fill="#FFFFFF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Query</text>
+
+  <rect x="174" y="338" width="370" height="404" rx="30" fill="#F3F9FF"/>
+  <text x="210" y="384" fill="#0F172A" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">Retrieved sources</text>
+  <rect x="210" y="420" width="298" height="86" rx="22" fill="#FFFFFF"/>
+  <rect x="210" y="524" width="298" height="86" rx="22" fill="#FFFFFF"/>
+  <rect x="210" y="628" width="298" height="86" rx="22" fill="#FFFFFF"/>
+  <text x="240" y="458" fill="#2D68D7" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">HHS.gov / preventive services</text>
+  <text x="240" y="562" fill="#2D68D7" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Healthcare.gov / coverage rules</text>
+  <text x="240" y="666" fill="#2D68D7" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">ASPE / ACA implementation</text>
+  <rect x="240" y="476" width="208" height="12" rx="6" fill="#D3DDE8"/>
+  <rect x="240" y="580" width="224" height="12" rx="6" fill="#D3DDE8"/>
+  <rect x="240" y="684" width="204" height="12" rx="6" fill="#D3DDE8"/>
+
+  <rect x="586" y="338" width="836" height="404" rx="30" fill="#FFFFFF"/>
+  <text x="626" y="384" fill="#0F172A" font-size="28" font-family="Arial, Helvetica, sans-serif" font-weight="700">Grounded answer</text>
+  <rect x="626" y="420" width="396" height="16" rx="8" fill="#D2DAE6"/>
+  <rect x="626" y="450" width="478" height="16" rx="8" fill="#D2DAE6"/>
+  <rect x="626" y="480" width="450" height="16" rx="8" fill="#D2DAE6"/>
+  <rect x="626" y="542" width="244" height="48" rx="18" fill="#E8F1FF"/>
+  <text x="658" y="572" fill="#2D68D7" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Citation 1 / HHS source</text>
+  <rect x="888" y="542" width="258" height="48" rx="18" fill="#EAF7F5"/>
+  <text x="922" y="572" fill="#147A71" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Citation 2 / Coverage rule</text>
+  <path d="M1178 428L1276 466L1178 504" stroke="url(#beam)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1278" cy="466" r="76" fill="#0F172A"/>
+  <circle cx="1278" cy="466" r="46" fill="#1A2C46"/>
+  <text x="1228" y="474" fill="#9CE9E7" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="700">RAG</text>
+  <rect x="626" y="626" width="516" height="72" rx="22" fill="#F6F9FF"/>
+  <text x="658" y="668" fill="#46556A" font-size="20" font-family="Arial, Helvetica, sans-serif" font-weight="700">Strict prompt: answer only from retrieved context</text>
+</svg>
