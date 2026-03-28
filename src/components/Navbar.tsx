@@ -83,15 +83,44 @@ export default function Navbar() {
     };
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+
+    if (!el) {
+      return;
+    }
+
+    const nav = document.querySelector("nav");
+    const navHeight = nav instanceof HTMLElement ? nav.offsetHeight : 0;
+    const targetTop =
+      el.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: "smooth",
+    });
+
+    const cleanUrl = `${window.location.pathname}${window.location.search}`;
+    window.history.replaceState(null, "", cleanUrl);
+  };
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const id = href.slice(1);
-    const el = document.getElementById(id);
     setActiveSection(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+
+    if (mobileOpen) {
+      setMobileOpen(false);
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          scrollToSection(href);
+        });
+      });
+      return;
     }
-    setMobileOpen(false);
+
+    scrollToSection(href);
   };
 
   return (
