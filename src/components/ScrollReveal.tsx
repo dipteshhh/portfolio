@@ -24,20 +24,46 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          if (once) observer.unobserve(el);
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-    );
+    let ticking = false;
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    const updateVisibility = () => {
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const activationOffset = Math.max(96, viewportHeight * 0.14);
+      const isInView =
+        rect.top <= viewportHeight - activationOffset &&
+        rect.bottom >= activationOffset;
+
+      setVisible((current) => {
+        if (isInView) {
+          return true;
+        }
+
+        return once ? current : false;
+      });
+
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(updateVisibility);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("codex:section-scroll", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      window.removeEventListener("codex:section-scroll", requestUpdate);
+    };
   }, [once]);
 
   const animClass =

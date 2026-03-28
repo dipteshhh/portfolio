@@ -103,6 +103,15 @@ export default function Navbar() {
 
     const cleanUrl = `${window.location.pathname}${window.location.search}`;
     window.history.replaceState(null, "", cleanUrl);
+
+    const syncSectionVisibility = () => {
+      window.dispatchEvent(new Event("scroll"));
+      window.dispatchEvent(new Event("codex:section-scroll"));
+    };
+
+    window.requestAnimationFrame(syncSectionVisibility);
+    window.setTimeout(syncSectionVisibility, 160);
+    window.setTimeout(syncSectionVisibility, 420);
   };
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
