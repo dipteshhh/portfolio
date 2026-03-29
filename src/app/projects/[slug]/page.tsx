@@ -55,6 +55,106 @@ const LEARNEASE_CHART = `flowchart LR
     class DB,Disk data;
     class OpenAI external;`;
 
+const DELIGHT_DINING_CHART = `flowchart LR
+    subgraph Client["Client / React App"]
+        direction TB
+        Public["Public Routes<br/>Home / Menu / Reservations / Catering / Checkout"]
+        Admin["Admin Routes<br/>Dashboard / Menu / Reservations / Orders / Catering"]
+        State["Shared State Layer<br/>AuthProvider / CartProvider / ToastProvider"]
+        Hooks["Typed Data Hooks<br/>useMenu / useReservations / useOrders / useCatering"]
+    end
+
+    subgraph Access["Frontend Data Access"]
+        direction TB
+        SupabaseJS["Supabase JS Client"]
+        Demo["Demo Fallback<br/>localStorage + seeded menu data"]
+    end
+
+    subgraph Backend["Supabase Backend"]
+        direction TB
+        Auth["Supabase Auth<br/>Admin login + protected routes"]
+        DB[("Postgres + RLS<br/>Menu / Reservations / Orders / Catering")]
+        Booking["Reservation RPC<br/>book_reservation"]
+        Edge["Edge Function<br/>send-confirmation"]
+    end
+
+    subgraph External["External Service"]
+        direction TB
+        Resend["Resend Email API"]
+    end
+
+    Public --> State
+    Admin --> State
+    Admin -.-> Auth
+    State --> Hooks
+    Hooks --> SupabaseJS
+    Hooks -.-> Demo
+    SupabaseJS --> Auth
+    SupabaseJS --> DB
+    SupabaseJS --> Booking
+    SupabaseJS --> Edge
+    Booking --> DB
+    Edge --> Resend
+
+    classDef primary fill:#0059bb,stroke:#0070ea,color:#ffffff,stroke-width:2px;
+    classDef secondary fill:#ffffff,stroke:#c1c6d7,color:#1b1c1c,stroke-width:1.5px;
+    classDef data fill:#e4e2e1,stroke:#0059bb,color:#1b1c1c,stroke-width:2px;
+    classDef external fill:#1b1c1c,stroke:#5b5e5e,color:#ffffff,stroke-width:1.5px;
+
+    class Public,Admin,State,Hooks,Auth secondary;
+    class SupabaseJS,Booking,Edge primary;
+    class DB,Demo data;
+    class Resend external;`;
+
+const RAILA_AI_CHAT_CHART = `flowchart LR
+    subgraph Client["Client / React App"]
+        direction TB
+        UI["Chat UI Surface<br/>Sidebar / ChatRoom / InviteGate / AdminPanel"]
+        Hooks["Custom Hooks<br/>useAuth / useMessages / useChatList / usePresence / useUnread"]
+        Uploads["File Upload + Reactions<br/>Replies / Search / Slash Commands"]
+    end
+
+    subgraph Firebase["Firebase Data Layer"]
+        direction TB
+        Auth["Firebase Auth<br/>Google sign-in + invite approval"]
+        Firestore[("Firestore<br/>users / chats / messages / presence / invites / lastRead / typing")]
+        Storage["Firebase Storage<br/>image + document uploads"]
+        Rules["Security Rules<br/>member-only chat access"]
+    end
+
+    subgraph Functions["Cloud Functions"]
+        direction TB
+        AI["AI Functions<br/>generateAiResponse + summarizeRoom"]
+        Invite["Invite Functions<br/>create / redeem / list / toggle"]
+    end
+
+    subgraph External["External Service"]
+        direction TB
+        Gemini["Gemini API"]
+    end
+
+    UI --> Hooks
+    UI --> Uploads
+    Hooks --> Auth
+    Hooks --> Firestore
+    Uploads --> Storage
+    AI --> Firestore
+    Invite --> Firestore
+    UI --> AI
+    UI --> Invite
+    Firestore -.-> Rules
+    AI --> Gemini
+
+    classDef primary fill:#0059bb,stroke:#0070ea,color:#ffffff,stroke-width:2px;
+    classDef secondary fill:#ffffff,stroke:#c1c6d7,color:#1b1c1c,stroke-width:1.5px;
+    classDef data fill:#e4e2e1,stroke:#0059bb,color:#1b1c1c,stroke-width:2px;
+    classDef external fill:#1b1c1c,stroke:#5b5e5e,color:#ffffff,stroke-width:1.5px;
+
+    class UI,Hooks,Uploads,Auth secondary;
+    class AI,Invite primary;
+    class Firestore,Storage,Rules data;
+    class Gemini external;`;
+
 function LearnEaseArchitectureFallback() {
   const sections = [
     {
@@ -151,6 +251,225 @@ function LearnEaseArchitectureFallback() {
   );
 }
 
+function DelightDiningArchitectureFallback() {
+  const sections = [
+    {
+      title: "Public Experience",
+      tone: "border-primary/30 bg-white/70",
+      items: ["Home + Menu", "Reservations + Catering", "Cart + Checkout"],
+    },
+    {
+      title: "Admin Operations",
+      tone: "border-primary/30 bg-white/70",
+      items: ["Protected Dashboard", "Menu + Reservation Managers", "Orders + Catering Workflows"],
+    },
+    {
+      title: "App State + Hooks",
+      tone: "border-primary bg-primary/8",
+      items: ["AuthProvider + CartProvider", "Toast Feedback Layer", "Typed data hooks per workflow"],
+    },
+    {
+      title: "Supabase Backend",
+      tone: "border-outline-variant bg-surface-container-highest/80",
+      items: [
+        "Auth + protected admin access",
+        "Postgres tables + RLS policies",
+        "Atomic reservation booking RPC",
+      ],
+    },
+    {
+      title: "Fallback + Notifications",
+      tone: "border-on-surface/20 bg-on-surface text-white",
+      items: ["Demo-mode localStorage path", "Edge function email trigger", "Resend delivery"],
+    },
+  ];
+
+  const flows = [
+    "1. Public routes load menu, reservation, catering, and checkout flows through typed hooks.",
+    "2. Admin routes require auth before exposing dashboard, reservation, order, and menu operations.",
+    "3. Supabase persists menu items, reservations, catering inquiries, orders, and order items with RLS protection.",
+    "4. Reservation booking uses a database RPC to enforce per-slot capacity before insert.",
+    "5. Successful reservation and catering writes invoke the confirmation edge function.",
+    "6. If Supabase env vars are missing, the app falls back to local demo data instead of failing hard.",
+  ];
+
+  return (
+    <div className="rounded-xl border border-outline-variant/30 bg-white/60 p-6 shadow-[0_20px_40px_rgba(27,28,28,0.04)]">
+      <div className="grid gap-4 xl:grid-cols-5">
+        {sections.map((section) => (
+          <div
+            key={section.title}
+            className={`rounded-2xl border p-4 ${section.tone}`}
+          >
+            <h3 className="font-sans text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+              {section.title}
+            </h3>
+            <div className="mt-4 space-y-2">
+              {section.items.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-xl bg-surface-container-lowest/80 px-3 py-2 text-sm font-medium text-on-surface shadow-sm"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="my-6 grid gap-3 text-xs font-bold uppercase tracking-[0.14em] text-primary md:grid-cols-3">
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Public Ordering Flow
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Protected Admin Ops
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Fallback + Email Delivery
+        </div>
+      </div>
+
+      <div className="grid gap-3 md:grid-cols-2">
+        {flows.map((flow) => (
+          <div
+            key={flow}
+            className="rounded-xl border border-outline-variant/20 bg-surface-container-low px-4 py-3 text-sm leading-relaxed text-on-surface-variant"
+          >
+            {flow}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RailaAiChatArchitectureFallback() {
+  const sections = [
+    {
+      title: "Client UI",
+      tone: "border-primary/30 bg-white/70",
+      items: ["Sidebar + ChatRoom", "InviteGate + AdminPanel", "Search / replies / reactions"],
+    },
+    {
+      title: "Hook Layer",
+      tone: "border-primary bg-primary/8",
+      items: ["useAuth + useMessages", "useChatList + usePresence", "useUnread state tracking"],
+    },
+    {
+      title: "Firebase Core",
+      tone: "border-outline-variant bg-surface-container-highest/80",
+      items: ["Firebase Auth", "Firestore chats + presence", "Storage for file uploads"],
+    },
+    {
+      title: "Cloud Functions",
+      tone: "border-primary/30 bg-surface-container-lowest/90",
+      items: ["AI response + room summary", "Invite code lifecycle", "Server-side secret boundary"],
+    },
+    {
+      title: "External AI",
+      tone: "border-on-surface/20 bg-on-surface text-white",
+      items: ["Gemini API", "No client-side secrets"],
+    },
+  ];
+
+  const flows = [
+    "1. React UI routes chat, DM, invite, and admin interactions through focused custom hooks.",
+    "2. Firebase Auth gates access before users can enter the app or redeem invite codes.",
+    "3. Firestore stores public chat, group and DM threads, presence, typing indicators, invites, and per-user lastRead state.",
+    "4. Firebase Storage handles shared files while Firestore keeps the message metadata and realtime subscriptions.",
+    "5. Cloud Functions own AI chat, room summaries, and invite-code workflows instead of exposing secrets in the browser.",
+    "6. Gemini sits behind the Cloud Function boundary so AI features stay server-side and easier to secure.",
+  ];
+
+  return (
+    <div className="rounded-xl border border-outline-variant/30 bg-white/60 p-6 shadow-[0_20px_40px_rgba(27,28,28,0.04)]">
+      <div className="grid gap-4 xl:grid-cols-5">
+        {sections.map((section) => (
+          <div
+            key={section.title}
+            className={`rounded-2xl border p-4 ${section.tone}`}
+          >
+            <h3 className="font-sans text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+              {section.title}
+            </h3>
+            <div className="mt-4 space-y-2">
+              {section.items.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-xl bg-surface-container-lowest/80 px-3 py-2 text-sm font-medium text-on-surface shadow-sm"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="my-6 grid gap-3 text-xs font-bold uppercase tracking-[0.14em] text-primary md:grid-cols-3">
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Realtime Messaging
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Invite + Admin Controls
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Server-side AI
+        </div>
+      </div>
+
+      <div className="grid gap-3 md:grid-cols-2">
+        {flows.map((flow) => (
+          <div
+            key={flow}
+            className="rounded-xl border border-outline-variant/20 bg-surface-container-low px-4 py-3 text-sm leading-relaxed text-on-surface-variant"
+          >
+            {flow}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjectSidebarAction(props: {
+  href?: string;
+  label: string;
+  note?: string;
+  icon: React.ReactNode;
+}) {
+  if (props.href) {
+    return (
+      <a
+        href={props.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
+      >
+        {props.icon}
+        {props.label}
+      </a>
+    );
+  }
+
+  if (!props.note) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-start gap-3 text-on-surface-variant">
+      <div className="mt-0.5 shrink-0 opacity-70">{props.icon}</div>
+      <div className="space-y-1">
+        <div className="text-on-surface text-sm font-semibold">{props.label}</div>
+        <p className="max-w-xs text-xs font-medium leading-relaxed opacity-80">
+          {props.note}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default async function ProjectCaseStudy(props: {
   params: Promise<{ slug: string }>;
 }) {
@@ -239,53 +558,47 @@ export default async function ProjectCaseStudy(props: {
               ))}
             </div>
 
-            <div className="font-sans space-y-4 text-sm font-semibold">
-              <a
-                href={project.codeUrl || "#"}
-                className={`flex items-center gap-2 transition-opacity ${
-                  project.codeUrl
-                    ? "text-primary hover:opacity-80"
-                    : "text-on-surface-variant cursor-not-allowed opacity-50"
-                }`}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
-                View Source Code
-              </a>
-              <a
-                href={project.liveUrl || "#"}
-                className={`flex items-center gap-2 transition-opacity ${
-                  project.liveUrl
-                    ? "text-primary hover:opacity-80"
-                    : "text-on-surface-variant cursor-not-allowed opacity-50"
-                }`}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-                Live Demo
-              </a>
+            <div className="font-sans space-y-5 text-sm font-semibold">
+              <ProjectSidebarAction
+                href={project.codeUrl}
+                label="View Source Code"
+                note={project.codeAvailabilityNote}
+                icon={
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
+                  </svg>
+                }
+              />
+              <ProjectSidebarAction
+                href={project.liveUrl}
+                label="Live Demo"
+                note={project.liveAvailabilityNote}
+                icon={
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                }
+              />
             </div>
           </div>
         </aside>
@@ -316,6 +629,20 @@ export default async function ProjectCaseStudy(props: {
                 <MermaidDiagram
                   chart={LEARNEASE_CHART}
                   fallback={<LearnEaseArchitectureFallback />}
+                />
+              </div>
+            ) : project.slug === "delight-dining" ? (
+              <div className="bg-surface-container-low mb-12 rounded-xl py-8">
+                <MermaidDiagram
+                  chart={DELIGHT_DINING_CHART}
+                  fallback={<DelightDiningArchitectureFallback />}
+                />
+              </div>
+            ) : project.slug === "raila-ai-chat" ? (
+              <div className="bg-surface-container-low mb-12 rounded-xl py-8">
+                <MermaidDiagram
+                  chart={RAILA_AI_CHAT_CHART}
+                  fallback={<RailaAiChatArchitectureFallback />}
                 />
               </div>
             ) : (

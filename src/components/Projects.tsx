@@ -83,7 +83,7 @@ export default function Projects() {
                     </p>
                   )}
 
-                  <div className="mt-auto flex flex-wrap items-center gap-6 pt-4 border-t border-outline-variant/15">
+                  <div className="mt-auto flex items-center pt-4 border-t border-outline-variant/15">
                     <Link
                       href={`/projects/${project.slug}`}
                       className="text-primary group/link inline-flex items-center gap-2 font-semibold transition-all hover:gap-3"
@@ -103,22 +103,6 @@ export default function Projects() {
                         />
                       </svg>
                     </Link>
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        className="text-on-surface-variant hover:text-primary transition-colors font-sans text-sm font-semibold"
-                      >
-                        Live Demo
-                      </a>
-                    )}
-                    {project.codeUrl && (
-                      <a
-                        href={project.codeUrl}
-                        className="text-on-surface-variant hover:text-primary transition-colors font-sans text-sm font-semibold"
-                      >
-                        Source Code
-                      </a>
-                    )}
                   </div>
                 </article>
               );

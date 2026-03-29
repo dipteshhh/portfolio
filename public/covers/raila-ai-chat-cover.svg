@@ -1,0 +1,133 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="112" y1="82" x2="1492" y2="828" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1324"/>
+      <stop offset="1" stop-color="#13233B"/>
+    </linearGradient>
+    <linearGradient id="window" x1="150" y1="132" x2="1450" y2="762" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101928"/>
+      <stop offset="1" stop-color="#0D1623"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="920" y1="240" x2="1320" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D68D7"/>
+      <stop offset="1" stop-color="#6EA4FF"/>
+    </linearGradient>
+    <linearGradient id="summary" x1="1110" y1="246" x2="1398" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18386C"/>
+      <stop offset="1" stop-color="#254F97"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
+  <circle cx="1320" cy="162" r="152" fill="#22406E" opacity="0.28"/>
+  <circle cx="258" cy="768" r="206" fill="#17365D" opacity="0.22"/>
+  <circle cx="1168" cy="706" r="112" fill="#0F2F57" opacity="0.18"/>
+
+  <rect x="118" y="106" width="1364" height="690" rx="36" fill="url(#window)" stroke="#243248" stroke-width="4"/>
+  <rect x="118" y="106" width="1364" height="70" rx="36" fill="#111A2B"/>
+  <circle cx="168" cy="141" r="8" fill="#FF8D7A"/>
+  <circle cx="198" cy="141" r="8" fill="#FFC66E"/>
+  <circle cx="228" cy="141" r="8" fill="#68C88D"/>
+  <text x="278" y="148" fill="#E2EBFB" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">Raila AI Chat</text>
+  <rect x="1180" y="122" width="198" height="36" rx="18" fill="#182235"/>
+  <text x="1214" y="145" fill="#9AB1D3" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">Invite-only realtime</text>
+
+  <rect x="150" y="206" width="326" height="552" rx="28" fill="#0F1726"/>
+  <text x="188" y="246" fill="#70819E" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="2">ROOMS</text>
+
+  <rect x="174" y="272" width="278" height="70" rx="22" fill="#19253A" stroke="#2D68D7" stroke-width="2"/>
+  <circle cx="208" cy="307" r="8" fill="#67D58C"/>
+  <text x="242" y="301" fill="#EAF1FF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Public Chat</text>
+  <text x="242" y="324" fill="#9CB0D0" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700">AI summary + commands</text>
+  <rect x="392" y="292" width="30" height="30" rx="15" fill="#2D68D7"/>
+  <text x="407" y="312" fill="#FFFFFF" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">8</text>
+
+  <text x="188" y="388" fill="#70819E" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="2">DIRECT MESSAGES</text>
+
+  <rect x="174" y="412" width="278" height="62" rx="20" fill="#151F31"/>
+  <circle cx="208" cy="443" r="7" fill="#67D58C"/>
+  <text x="242" y="438" fill="#F2F6FF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Direct Message</text>
+  <text x="242" y="458" fill="#92A6C6" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700">online · persistent</text>
+  <rect x="388" y="428" width="40" height="24" rx="12" fill="#EAF7EF"/>
+  <text x="408" y="444" fill="#2E8D58" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">2</text>
+
+  <rect x="174" y="486" width="278" height="62" rx="20" fill="#151F31"/>
+  <circle cx="208" cy="517" r="7" fill="#8AA0C0"/>
+  <text x="242" y="512" fill="#F2F6FF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Trip Group</text>
+  <text x="242" y="532" fill="#92A6C6" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700">group room · unread</text>
+  <rect x="382" y="502" width="46" height="24" rx="12" fill="#FFF1E0"/>
+  <text x="405" y="518" fill="#B86117" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">12</text>
+
+  <rect x="174" y="560" width="278" height="62" rx="20" fill="#151F31"/>
+  <circle cx="208" cy="591" r="7" fill="#67D58C"/>
+  <text x="242" y="586" fill="#F2F6FF" font-size="17" font-family="Arial, Helvetica, sans-serif" font-weight="700">Homework Help</text>
+  <text x="242" y="606" fill="#92A6C6" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700">AI room · functions</text>
+
+  <rect x="174" y="650" width="278" height="74" rx="22" fill="#111C2C"/>
+  <text x="210" y="685" fill="#9AB8F6" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.5">PRESENCE</text>
+  <rect x="210" y="698" width="202" height="10" rx="5" fill="#22324C"/>
+  <rect x="210" y="698" width="132" height="10" rx="5" fill="#5E8DFF"/>
+  <text x="210" y="722" fill="#C8D7F5" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="700">presence · typing · unread</text>
+
+  <rect x="484" y="206" width="566" height="552" rx="28" fill="#101A2A"/>
+  <rect x="516" y="236" width="502" height="60" rx="22" fill="#141F32"/>
+  <text x="546" y="274" fill="#F4F7FF" font-size="26" font-family="Arial, Helvetica, sans-serif" font-weight="700">Team Planning</text>
+  <rect x="848" y="250" width="124" height="30" rx="15" fill="#1C335A"/>
+  <text x="910" y="270" fill="#BFD3FF" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">typing...</text>
+
+  <rect x="534" y="332" width="292" height="128" rx="24" fill="#EDF3FF"/>
+  <text x="562" y="366" fill="#2D68D7" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">You</text>
+  <text x="562" y="394" fill="#172133" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <tspan x="562" dy="0">Hey RailaAI, what did the</tspan>
+    <tspan x="562" dy="24">boys discuss in the last</tspan>
+    <tspan x="562" dy="24">50 messages?</tspan>
+  </text>
+
+  <rect x="646" y="472" width="332" height="130" rx="26" fill="url(#accent)"/>
+  <text x="678" y="508" fill="#DCE7FF" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700">RailaAI</text>
+  <text x="678" y="538" fill="#FFFFFF" font-size="21" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <tspan x="678" dy="0">Summary: budget locked,</tspan>
+    <tspan x="678" dy="26">trip dates confirmed, and</tspan>
+    <tspan x="678" dy="26">Alex will book the stay.</tspan>
+  </text>
+
+  <rect x="534" y="624" width="226" height="62" rx="20" fill="#172234"/>
+  <text x="562" y="660" fill="#EAF1FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">/trip itinerary draft</text>
+
+  <rect x="776" y="624" width="202" height="62" rx="20" fill="#172234"/>
+  <text x="804" y="660" fill="#EAF1FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">reply + reactions</text>
+
+  <rect x="534" y="714" width="444" height="42" rx="21" fill="#0C1421" stroke="#21324A" stroke-width="2"/>
+  <text x="756" y="741" fill="#8095B7" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Message the room, upload files, or use slash commands...</text>
+
+  <rect x="1082" y="206" width="334" height="552" rx="28" fill="#101827"/>
+  <rect x="1112" y="236" width="274" height="194" rx="26" fill="url(#summary)"/>
+  <text x="1142" y="274" fill="#D8E6FF" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.8">AI SUMMARY PANEL</text>
+  <text x="1249" y="314" fill="#FFFFFF" font-size="25" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Catch up instantly</text>
+  <rect x="1142" y="338" width="110" height="30" rx="15" fill="#E7F0FF"/>
+  <text x="1197" y="358" fill="#2D68D7" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Gemini</text>
+  <rect x="1264" y="338" width="96" height="30" rx="15" fill="#EAF7EF"/>
+  <text x="1312" y="358" fill="#2E8D58" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">secure</text>
+  <rect x="1142" y="384" width="202" height="12" rx="6" fill="#B8CDFC"/>
+  <rect x="1142" y="406" width="176" height="12" rx="6" fill="#B8CDFC" opacity="0.86"/>
+
+  <rect x="1112" y="456" width="274" height="126" rx="24" fill="#141F31"/>
+  <text x="1142" y="494" fill="#95B0DD" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.8">FUNCTIONS</text>
+  <rect x="1142" y="512" width="116" height="32" rx="16" fill="#E7EEFF"/>
+  <text x="1200" y="533" fill="#2D68D7" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">AI reply</text>
+  <rect x="1270" y="512" width="96" height="32" rx="16" fill="#FFF1E0"/>
+  <text x="1318" y="533" fill="#B86117" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">invites</text>
+  <rect x="1142" y="554" width="224" height="10" rx="5" fill="#22324C"/>
+  <rect x="1142" y="554" width="172" height="10" rx="5" fill="#5E8DFF"/>
+
+  <rect x="1112" y="604" width="274" height="120" rx="24" fill="#141F31"/>
+  <text x="1142" y="642" fill="#95B0DD" font-size="15" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1.8">REALTIME DATA</text>
+  <text x="1142" y="672" fill="#EAF1FF" font-size="18" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <tspan x="1142" dy="0">Firestore + presence +</tspan>
+    <tspan x="1142" dy="22">unread state</tspan>
+  </text>
+  <text x="1142" y="714" fill="#A7B9D8" font-size="13" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <tspan x="1142" dy="0">rooms · DMs · typing</tspan>
+    <tspan x="1142" dy="20">indicators · files</tspan>
+  </text>
+</svg>
