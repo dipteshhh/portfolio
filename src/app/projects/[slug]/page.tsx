@@ -5,6 +5,14 @@ import { notFound } from "next/navigation";
 import { PROJECTS_DATA } from "@/data/projects";
 import MermaidDiagram from "@/components/MermaidDiagram";
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return PROJECTS_DATA.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 const LEARNEASE_CHART = `flowchart LR
     subgraph Client["Client / Browser"]
         direction TB
@@ -154,6 +162,63 @@ const RAILA_AI_CHAT_CHART = `flowchart LR
     class AI,Invite primary;
     class Firestore,Storage,Rules data;
     class Gemini external;`;
+
+const AI_RESUME_ANALYZER_CHART = `flowchart LR
+    subgraph Client["Client / Resume Review UI"]
+        direction TB
+        Upload["Resume Upload<br/>PDF / DOCX"]
+        JD["Job Description Input"]
+        Results["Structured Results View<br/>ATS / Grammar / Keywords / Bullet Feedback"]
+    end
+
+    subgraph Flask["Flask Application"]
+        direction TB
+        API["Upload + Analysis Route"]
+        Normalize["Preprocessing + Segmentation"]
+        Response["JSON Response Builder"]
+    end
+
+    subgraph Pipeline["Analysis Pipeline"]
+        direction TB
+        Parse["Document Extraction<br/>pdfplumber / python-docx"]
+        Format["Formatting + ATS Checks"]
+        Keyword["Keyword Ranking + Matching"]
+        Writing["Grammar + Bullet Strength Review"]
+    end
+
+    subgraph NLP["NLP Components"]
+        direction TB
+        Spacy["spaCy + NLTK"]
+        LT["LanguageTool"]
+        Models["Transformers + skillNer"]
+    end
+
+    Upload --> API
+    JD --> API
+    API --> Parse
+    Parse --> Normalize
+    Normalize --> Format
+    Normalize --> Keyword
+    Normalize --> Writing
+    Format --> Response
+    Keyword --> Response
+    Writing --> Response
+    Spacy --> Keyword
+    Spacy --> Writing
+    LT --> Writing
+    Models --> Keyword
+    Models --> Writing
+    Response --> Results
+
+    classDef primary fill:#0059bb,stroke:#0070ea,color:#ffffff,stroke-width:2px;
+    classDef secondary fill:#ffffff,stroke:#c1c6d7,color:#1b1c1c,stroke-width:1.5px;
+    classDef data fill:#e4e2e1,stroke:#0059bb,color:#1b1c1c,stroke-width:2px;
+    classDef external fill:#1b1c1c,stroke:#5b5e5e,color:#ffffff,stroke-width:1.5px;
+
+    class Upload,JD,Results secondary;
+    class API,Normalize,Response primary;
+    class Parse,Format,Keyword,Writing data;
+    class Spacy,LT,Models external;`;
 
 function LearnEaseArchitectureFallback() {
   const sections = [
@@ -433,6 +498,95 @@ function RailaAiChatArchitectureFallback() {
   );
 }
 
+function AiResumeAnalyzerArchitectureFallback() {
+  const sections = [
+    {
+      title: "Client Input",
+      tone: "border-primary/30 bg-white/70",
+      items: ["Resume upload", "Job description entry", "Structured analysis results"],
+    },
+    {
+      title: "Flask App",
+      tone: "border-primary bg-primary/8",
+      items: ["Upload + analysis endpoint", "Preprocessing + segmentation", "JSON response shaping"],
+    },
+    {
+      title: "Document Parsing",
+      tone: "border-primary/30 bg-surface-container-lowest/90",
+      items: ["pdfplumber for PDF", "python-docx for DOCX", "Extracted text normalization"],
+    },
+    {
+      title: "Analysis Layers",
+      tone: "border-outline-variant bg-surface-container-highest/80",
+      items: ["ATS + formatting checks", "Keyword ranking", "Grammar + bullet review"],
+    },
+    {
+      title: "NLP Tooling",
+      tone: "border-on-surface/20 bg-on-surface text-white",
+      items: ["spaCy + NLTK", "LanguageTool", "Transformers + skillNer"],
+    },
+  ];
+
+  const flows = [
+    "1. The user submits a resume file and target job description through the web interface.",
+    "2. Flask accepts the upload and routes PDF and DOCX files through the matching parser.",
+    "3. Extracted resume text is normalized into cleaner segments before scoring begins.",
+    "4. Separate analysis stages evaluate ATS structure, missing keywords, grammar issues, and bullet quality.",
+    "5. NLP components enrich the ranking and writing checks instead of relying on a single opaque score.",
+    "6. The backend returns structured JSON so the frontend can render actionable revision feedback.",
+  ];
+
+  return (
+    <div className="rounded-xl border border-outline-variant/30 bg-white/60 p-6 shadow-[0_20px_40px_rgba(27,28,28,0.04)]">
+      <div className="grid gap-4 xl:grid-cols-5">
+        {sections.map((section) => (
+          <div
+            key={section.title}
+            className={`rounded-2xl border p-4 ${section.tone}`}
+          >
+            <h3 className="font-sans text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+              {section.title}
+            </h3>
+            <div className="mt-4 space-y-2">
+              {section.items.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-xl bg-surface-container-lowest/80 px-3 py-2 text-sm font-medium text-on-surface shadow-sm"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="my-6 grid gap-3 text-xs font-bold uppercase tracking-[0.14em] text-primary md:grid-cols-3">
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Parse + Normalize
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Multi-stage Analysis
+        </div>
+        <div className="rounded-full bg-primary/10 px-4 py-2 text-center">
+          Structured Feedback
+        </div>
+      </div>
+
+      <div className="grid gap-3 md:grid-cols-2">
+        {flows.map((flow) => (
+          <div
+            key={flow}
+            className="rounded-xl border border-outline-variant/20 bg-surface-container-low px-4 py-3 text-sm leading-relaxed text-on-surface-variant"
+          >
+            {flow}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProjectSidebarAction(props: {
   href?: string;
   label: string;
@@ -521,14 +675,15 @@ export default async function ProjectCaseStudy(props: {
 
       {/* Visual Anchor Placeholder (No-Line surface) */}
       <div className="mb-32">
-        <div className="bg-surface-container-low group relative h-[500px] w-full overflow-hidden rounded-xl">
+        <div className="bg-surface-container-low group relative aspect-video w-full overflow-hidden rounded-xl md:h-[500px] md:aspect-auto">
           {project.imageSrc ? (
             <Image
               src={project.imageSrc}
               alt={project.imageAlt || project.title}
               fill
+              priority
               sizes="100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+              className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.015] md:object-cover md:p-0"
             />
           ) : (
             <div className="text-on-surface-variant absolute inset-0 flex items-center justify-center font-bold tracking-widest uppercase">
@@ -643,6 +798,13 @@ export default async function ProjectCaseStudy(props: {
                 <MermaidDiagram
                   chart={RAILA_AI_CHAT_CHART}
                   fallback={<RailaAiChatArchitectureFallback />}
+                />
+              </div>
+            ) : project.slug === "ai-resume-analyzer" ? (
+              <div className="bg-surface-container-low mb-12 rounded-xl py-8">
+                <MermaidDiagram
+                  chart={AI_RESUME_ANALYZER_CHART}
+                  fallback={<AiResumeAnalyzerArchitectureFallback />}
                 />
               </div>
             ) : (

@@ -51,7 +51,7 @@ const EXPERIENCE_DATA: ExperienceEntry[] = [
 export default function Experience() {
   return (
     <>
-      <section id="experience" className="mx-auto max-w-7xl px-8 py-32">
+      <section id="experience" className="home-anchor mx-auto max-w-7xl px-8 py-32">
         <header className="mb-24 max-w-3xl">
           <div className="mb-4">
             <span className="font-sans text-[0.75rem] font-bold uppercase tracking-[0.15em] text-primary">

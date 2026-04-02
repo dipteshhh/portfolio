@@ -2,16 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { openContactModal } from "./ContactModal";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#hero" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Research", href: "#research" },
+  { label: "Home", href: "/#hero", sectionId: "hero" },
+  { label: "Experience", href: "/#experience", sectionId: "experience" },
+  { label: "Projects", href: "/#projects", sectionId: "projects" },
+  { label: "Research", href: "/#research", sectionId: "research" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -24,7 +27,11 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = NAV_LINKS.map((link) => link.href.slice(1));
+    if (!isHomePage) {
+      return;
+    }
+
+    const sectionIds = NAV_LINKS.map((link) => link.sectionId);
     let ticking = false;
 
     const updateActiveSection = () => {
@@ -81,56 +88,7 @@ export default function Navbar() {
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
     };
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    const id = href.slice(1);
-    const el = document.getElementById(id);
-
-    if (!el) {
-      return;
-    }
-
-    const nav = document.querySelector("nav");
-    const navHeight = nav instanceof HTMLElement ? nav.offsetHeight : 0;
-    const targetTop =
-      el.getBoundingClientRect().top + window.scrollY - navHeight - 12;
-
-    window.scrollTo({
-      top: Math.max(0, targetTop),
-      behavior: "smooth",
-    });
-
-    const cleanUrl = `${window.location.pathname}${window.location.search}`;
-    window.history.replaceState(null, "", cleanUrl);
-
-    const syncSectionVisibility = () => {
-      window.dispatchEvent(new Event("scroll"));
-      window.dispatchEvent(new Event("codex:section-scroll"));
-    };
-
-    window.requestAnimationFrame(syncSectionVisibility);
-    window.setTimeout(syncSectionVisibility, 160);
-    window.setTimeout(syncSectionVisibility, 420);
-  };
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const id = href.slice(1);
-    setActiveSection(id);
-
-    if (mobileOpen) {
-      setMobileOpen(false);
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          scrollToSection(href);
-        });
-      });
-      return;
-    }
-
-    scrollToSection(href);
-  };
+  }, [isHomePage]);
 
   return (
     <nav
@@ -143,6 +101,10 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
         <Link
           href="/"
+          onClick={() => {
+            setActiveSection("hero");
+            setMobileOpen(false);
+          }}
           className="font-display text-on-surface text-lg font-extrabold tracking-tight"
         >
           DST<span className="text-primary">.</span>
@@ -151,12 +113,12 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.href.slice(1);
+            const isActive = isHomePage && activeSection === link.sectionId;
             return (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
+                onClick={() => setActiveSection(link.sectionId)}
                 className={`relative font-sans text-[0.75rem] font-bold uppercase tracking-[0.15em] transition-colors ${
                   isActive
                     ? "text-primary"
@@ -167,7 +129,7 @@ export default function Navbar() {
                 {isActive && (
                   <span className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />
                 )}
-              </a>
+              </Link>
             );
           })}
           <button
@@ -199,12 +161,15 @@ export default function Navbar() {
         <div className="glass border-t border-outline-variant/10 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-8 py-4">
             {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
+              const isActive = isHomePage && activeSection === link.sectionId;
               return (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleClick(e, link.href)}
+                  onClick={() => {
+                    setActiveSection(link.sectionId);
+                    setMobileOpen(false);
+                  }}
                   className={`rounded-lg px-4 py-3 font-sans text-sm font-semibold transition-colors ${
                     isActive
                       ? "bg-primary/5 text-primary"
@@ -212,7 +177,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
             <button

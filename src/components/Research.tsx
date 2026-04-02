@@ -82,7 +82,7 @@ const RESEARCH_DATA = [
 
 export default function Research() {
   return (
-    <section id="research" className="mx-auto mb-24 max-w-7xl px-8 py-16">
+    <section id="research" className="home-anchor mx-auto mb-24 max-w-7xl px-8 py-16">
       <header className="mb-12">
         <span className="font-sans text-primary mb-4 block text-[0.75rem] font-bold uppercase tracking-[0.15em]">
           Academic Work

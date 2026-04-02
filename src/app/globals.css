@@ -44,11 +44,25 @@
     scroll-behavior: smooth;
   }
 
+  :root {
+    --home-anchor-offset: 5rem;
+  }
+
   body {
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-family: var(--font-inter);
   }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --home-anchor-offset: 5.5rem;
+  }
+}
+
+.home-anchor {
+  scroll-margin-top: var(--home-anchor-offset);
 }
 
 /* Glassmorphism Utility */

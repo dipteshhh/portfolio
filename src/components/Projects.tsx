@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <>
       {/* Hero Section for Projects */}
-      <section id="projects" className="mx-auto max-w-7xl px-8 pb-24 pt-32">
+      <section id="projects" className="home-anchor mx-auto max-w-7xl px-8 pb-24 pt-32">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-8">
             <span className="font-sans text-primary mb-4 block text-[0.75rem] font-bold uppercase tracking-[0.15em]">
